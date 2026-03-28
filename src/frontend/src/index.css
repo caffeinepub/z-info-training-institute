@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    /* Navy: #0B1F3B */
+    --background: 1 0 0;
+    --foreground: 0.22 0.055 244;
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.055 244;
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.055 244;
+    /* Orange accent */
+    --primary: 0.71 0.18 50;
+    --primary-foreground: 1 0 0;
+    /* Navy secondary */
+    --secondary: 0.22 0.055 244;
+    --secondary-foreground: 1 0 0;
+    --muted: 0.96 0.018 240;
+    --muted-foreground: 0.52 0.022 250;
+    --accent: 0.96 0.018 240;
+    --accent-foreground: 0.22 0.055 244;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.9 0.015 240;
+    --input: 0.9 0.015 240;
+    --ring: 0.71 0.18 50;
+    --chart-1: 0.71 0.18 50;
+    --chart-2: 0.44 0.1 240;
+    --chart-3: 0.22 0.055 244;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.22 0.055 244;
+    --sidebar-primary: 0.71 0.18 50;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.96 0.018 240;
+    --sidebar-accent-foreground: 0.22 0.055 244;
+    --sidebar-border: 0.9 0.015 240;
+    --sidebar-ring: 0.71 0.18 50;
+
+    /* Custom brand tokens */
+    --navy: 0.22 0.055 244;
+    --navy-light: 0.32 0.07 240;
+    --orange: 0.71 0.18 50;
+    --orange-light: 0.75 0.16 55;
+    --section-tint: 0.97 0.018 240;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", "BricolageGrotesque", sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  .animate-pulse-ring {
+    animation: pulseRing 2s ease-out infinite;
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  .animate-counter {
+    animation: countUp 1.5s ease-out forwards;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -10px oklch(0.22 0.055 244 / 0.15);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 oklch(0.71 0.18 50 / 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px oklch(0.71 0.18 50 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.71 0.18 50 / 0);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+@keyframes bounceBadge {
+  0%,
+  100% {
+    transform: scale(1) rotate(-3deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(-3deg);
+  }
+}
